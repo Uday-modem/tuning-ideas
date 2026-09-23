@@ -44,6 +44,7 @@ export interface AcademicProject {
   tools: string;
   domain: string;
   category: string;
+  department: 'ECE' | 'CSE';
 }
 
 export interface AcademicSupportService {

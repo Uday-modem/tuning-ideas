@@ -53,9 +53,10 @@ const About: React.FC = () => {
             </p>
             <p style={{ color: 'var(--text-mid)', lineHeight: 1.9, marginBottom: '1.25rem', fontSize: '0.97rem' }}>
               Alongside client work, we run a dedicated Academic Projects division supporting
-              Diploma, B.Tech, and M.Tech students with 110+ Embedded Systems, IoT, AI/ML, and
-              Robotics project titles — plus abstracts, source code, reports, IEEE papers, and
-              viva guidance from start to finish.
+              Diploma, B.Tech, and M.Tech students with 274+ Embedded Systems, IoT, AI/ML,
+              Robotics, Deep Learning, and Full Stack Development project titles across ECE and
+              CSE — plus abstracts, source code, reports, IEEE papers, and viva guidance from
+              start to finish.
             </p>
             <p style={{ color: 'var(--text-mid)', lineHeight: 1.9, marginBottom: '2rem', fontSize: '0.97rem' }}>
               We take a practical, first-principles approach — understanding your goals before
@@ -73,9 +74,9 @@ const About: React.FC = () => {
               }}
             >
               {[
-                { value: '110+', label: 'Project Titles' },
+                { value: '274+', label: 'Project Titles' },
+                { value: '2', label: 'Departments' },
                 { value: '3', label: 'Academic Levels' },
-                { value: '4', label: 'Tech Domains' },
               ].map((stat) => (
                 <div
                   key={stat.label}

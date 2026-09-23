@@ -6,7 +6,7 @@ const floatingCards = [
   { icon: <Globe size={22} />, label: 'Web Apps', sub: 'Custom builds' },
   { icon: <ShoppingCart size={22} />, label: 'Ecommerce', sub: 'Full stores' },
   { icon: <GraduationCap size={22} />, label: 'Final Year Projects', sub: 'Diploma · B.Tech · M.Tech' },
-  { icon: <Cpu size={22} />, label: 'Embedded · IoT · AI/ML', sub: '110+ titles ready' },
+  { icon: <Cpu size={22} />, label: 'Embedded · IoT · AI/ML', sub: '274+ titles ready' },
 ];
 
 const credibilityItems = ['Websites', 'Ecommerce', 'Final Year Projects', '24/7 Assistance'];
@@ -179,7 +179,7 @@ const Hero: React.FC = () => {
                 paddingBottom: 2,
               }}
             >
-              A student? Explore 110+ final year project titles <ArrowRight size={14} />
+              A student? Explore 274+ final year project titles <ArrowRight size={14} />
             </a>
           </motion.div>
 

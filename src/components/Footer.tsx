@@ -2,10 +2,17 @@ import React from 'react';
 import TILogo from './TILogo';
 import { WHATSAPP_LINK, EMAIL_LINK, CONTACT_EMAIL } from '../utils/contactLinks';
 
-const quickLinks = [
+interface QuickLink {
+  label: string;
+  href: string;
+  isProjectsRoute?: boolean;
+}
+
+const quickLinks: QuickLink[] = [
   { label: 'Home', href: '#home' },
   { label: 'About Us', href: '#about' },
   { label: 'Services', href: '#services' },
+  { label: 'Academic Projects', href: '#/projects', isProjectsRoute: true },
   { label: 'Our Work', href: '#work' },
   { label: 'Reviews', href: '#reviews' },
   { label: 'Contact', href: '#contact' },
@@ -27,10 +34,18 @@ const socialLinks = [
   { icon: '✉️', label: 'Email', href: EMAIL_LINK },
 ];
 
-const Footer: React.FC = () => {
-  const handleNav = (href: string) => {
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+interface Props {
+  onNavigateProjects: () => void;
+  onNavigateAnchor: (href: string) => void;
+}
+
+const Footer: React.FC<Props> = ({ onNavigateProjects, onNavigateAnchor }) => {
+  const handleNav = (link: QuickLink) => {
+    if (link.isProjectsRoute) {
+      onNavigateProjects();
+      return;
+    }
+    onNavigateAnchor(link.href);
   };
 
   return (
@@ -151,7 +166,7 @@ const Footer: React.FC = () => {
               {quickLinks.map((l) => (
                 <li key={l.href}>
                   <button
-                    onClick={() => handleNav(l.href)}
+                    onClick={() => handleNav(l)}
                     style={{
                       background: 'none',
                       border: 'none',
@@ -194,7 +209,7 @@ const Footer: React.FC = () => {
               {serviceLinks.map((s) => (
                 <li key={s}>
                   <button
-                    onClick={() => handleNav('#services')}
+                    onClick={() => onNavigateAnchor('#services')}
                     style={{
                       background: 'none',
                       border: 'none',
