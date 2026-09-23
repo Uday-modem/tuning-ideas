@@ -114,65 +114,6 @@ const About: React.FC = () => {
               ))}
             </div>
 
-            {/* Founders */}
-            <div
-              style={{
-                background: 'white',
-                border: '1px solid var(--border-color)',
-                borderRadius: '1rem',
-                padding: '1.5rem',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '0.75rem',
-              }}
-            >
-              {[
-                { initials: 'MK', name: 'Modem Uday Kiran Kumar', role: 'Founder & CEO' },
-                { initials: 'SS', name: 'Sure Silpa', role: 'Co-Founder' },
-              ].map((founder, i) => (
-                <React.Fragment key={founder.name}>
-                  {i > 0 && (
-                    <div style={{ height: 1, background: 'var(--border-color)' }} />
-                  )}
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                    <div
-                      style={{
-                        width: 42,
-                        height: 42,
-                        borderRadius: '50%',
-                        background: 'var(--charcoal)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        fontFamily: '"Cormorant Garamond", serif',
-                        fontSize: '0.95rem',
-                        fontWeight: 700,
-                        color: 'var(--copper-light)',
-                        flexShrink: 0,
-                      }}
-                    >
-                      {founder.initials}
-                    </div>
-                    <div>
-                      <div style={{ fontWeight: 600, fontSize: '0.92rem', color: 'var(--charcoal)' }}>
-                        {founder.name}
-                      </div>
-                      <div
-                        style={{
-                          fontSize: '0.7rem',
-                          color: 'var(--copper)',
-                          letterSpacing: '0.1em',
-                          textTransform: 'uppercase',
-                          fontWeight: 600,
-                        }}
-                      >
-                        {founder.role}
-                      </div>
-                    </div>
-                  </div>
-                </React.Fragment>
-              ))}
-            </div>
           </motion.div>
 
           {/* Right — Mission Cards */}

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
-import TILogo from './TILogo';
 import type { Route } from '../hooks/useHashRoute';
 
 interface NavLinkItem {
@@ -80,34 +79,40 @@ const Navbar: React.FC<Props> = ({ onNavigateProjects, onNavigateAnchor, route }
             flexShrink: 0,
           }}
         >
-          <TILogo size={34} variant="dark" />
+          <img
+            src="/favicon.png"
+            alt="Tuning Ideas logo"
+            width={54}
+            height={54}
+            style={{ width: 54, height: 54, objectFit: 'contain', flexShrink: 0 }}
+          />
           <div style={{ textAlign: 'left' }}>
             <div
               style={{
-                fontFamily: '"Cormorant Garamond", serif',
-                fontSize: '1.35rem',
-                fontWeight: 700,
+                fontFamily: '"Manrope", sans-serif',
+                fontSize: '1.15rem',
+                fontWeight: 800,
                 color: 'var(--charcoal)',
-                letterSpacing: '0.05em',
-                lineHeight: 1.1,
+                letterSpacing: '0.01em',
+                lineHeight: 1.15,
                 whiteSpace: 'nowrap',
               }}
             >
               Tuning Ideas
             </div>
-            <span
+            <div
               style={{
-                fontSize: '0.58rem',
-                color: 'var(--copper)',
-                letterSpacing: '0.15em',
-                textTransform: 'uppercase',
-                fontWeight: 600,
-                display: 'block',
+                fontFamily: '"Manrope", sans-serif',
+                fontSize: '0.62rem',
+                fontWeight: 500,
+                color: 'var(--text-muted)',
+                letterSpacing: '0.02em',
                 whiteSpace: 'nowrap',
+                marginTop: '0.1rem',
               }}
             >
-              Full Stack Development
-            </span>
+              From Ideas to Reality
+            </div>
           </div>
         </button>
 

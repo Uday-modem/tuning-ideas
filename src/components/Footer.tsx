@@ -1,5 +1,4 @@
 import React from 'react';
-import TILogo from './TILogo';
 import { WHATSAPP_LINK, EMAIL_LINK, CONTACT_EMAIL } from '../utils/contactLinks';
 
 interface QuickLink {
@@ -70,7 +69,13 @@ const Footer: React.FC<Props> = ({ onNavigateProjects, onNavigateAnchor }) => {
           {/* Brand */}
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-              <TILogo size={36} variant="light" />
+              <img
+                src="/logo-icon.png"
+                alt="Tuning Ideas logo"
+                width={36}
+                height={36}
+                style={{ width: 36, height: 36, objectFit: 'contain', flexShrink: 0 }}
+              />
               <div>
                 <div
                   style={{
@@ -298,23 +303,87 @@ const Footer: React.FC<Props> = ({ onNavigateProjects, onNavigateAnchor }) => {
           </div>
         </div>
 
+        {/* Leadership */}
+        <div
+          style={{
+            borderTop: '1px solid rgba(237,232,220,0.1)',
+            paddingTop: '2rem',
+            marginBottom: '2rem',
+          }}
+        >
+          <div
+            style={{
+              fontFamily: '"Cormorant Garamond", serif',
+              fontSize: '1.1rem',
+              color: 'var(--copper-light)',
+              marginBottom: '1.25rem',
+              fontWeight: 600,
+            }}
+          >
+            Leadership
+          </div>
+          <div
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: '2.5rem',
+            }}
+          >
+            {[
+              { initials: 'MK', name: 'Modem Uday Kiran Kumar', role: 'Founder & CEO' },
+              { initials: 'SS', name: 'Sure Silpa', role: 'Co-Founder' },
+            ].map((founder) => (
+              <div key={founder.name} style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
+                <div
+                  style={{
+                    width: 44,
+                    height: 44,
+                    borderRadius: '50%',
+                    background: 'rgba(237,232,220,0.08)',
+                    border: '1px solid rgba(237,232,220,0.15)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontFamily: '"Cormorant Garamond", serif',
+                    fontSize: '1rem',
+                    fontWeight: 700,
+                    color: 'var(--copper-light)',
+                    flexShrink: 0,
+                  }}
+                >
+                  {founder.initials}
+                </div>
+                <div>
+                  <div style={{ fontWeight: 600, fontSize: '0.92rem', color: 'var(--ivory)' }}>
+                    {founder.name}
+                  </div>
+                  <div
+                    style={{
+                      fontSize: '0.68rem',
+                      color: 'var(--copper-light)',
+                      letterSpacing: '0.1em',
+                      textTransform: 'uppercase',
+                      fontWeight: 600,
+                      marginTop: '0.1rem',
+                    }}
+                  >
+                    {founder.role}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Bottom bar */}
         <div
           style={{
             borderTop: '1px solid rgba(237,232,220,0.1)',
             paddingTop: '1.5rem',
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            flexWrap: 'wrap',
-            gap: '0.75rem',
           }}
         >
           <p style={{ fontSize: '0.78rem', color: 'rgba(237,232,220,0.35)', margin: 0 }}>
             © 2026 Tuning Ideas. All rights reserved.
-          </p>
-          <p style={{ fontSize: '0.78rem', color: 'var(--copper-light)', fontStyle: 'italic', margin: 0 }}>
-            Founded by Modem Uday Kiran Kumar
           </p>
         </div>
       </div>
