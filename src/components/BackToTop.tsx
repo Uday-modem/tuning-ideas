@@ -27,7 +27,7 @@ const BackToTop: React.FC = () => {
           whileTap={{ scale: 0.95 }}
           onClick={scrollToTop}
           title="Back to top"
-          className="glass-dark"
+          className="glass-dark-strong"
           style={{
             position: 'fixed',
             bottom: '2rem',

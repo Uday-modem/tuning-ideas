@@ -26,15 +26,14 @@ const FloatingWhatsApp: React.FC = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 6, scale: 0.95 }}
             transition={{ duration: 0.18 }}
+            className="glass-dark-strong"
             style={{
-              background: 'var(--charcoal)',
               color: 'var(--ivory)',
               padding: '0.5rem 0.9rem',
-              borderRadius: 8,
+              borderRadius: 10,
               fontSize: '0.78rem',
               fontWeight: 600,
               whiteSpace: 'nowrap',
-              boxShadow: '0 4px 16px rgba(28,28,26,0.18)',
             }}
           >
             {WHATSAPP_LABEL}

@@ -61,7 +61,7 @@ const ProjectDetailModal: React.FC<Props> = ({ project, onClose }) => {
             aria-label={project.title}
             className="glass-strong"
             style={{
-              borderRadius: '1.4rem',
+              borderRadius: '1.9rem',
               maxWidth: 560,
               width: '100%',
               maxHeight: '85vh',

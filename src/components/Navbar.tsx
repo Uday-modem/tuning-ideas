@@ -65,23 +65,21 @@ const Navbar: React.FC<Props> = ({ onNavigateProjects, onNavigateAnchor, route }
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
-        className={scrolled ? 'glass' : ''}
+        className={scrolled ? 'glass-nav-scrolled' : 'glass-nav'}
         style={{
           position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
+          top: 'max(0.85rem, calc(env(safe-area-inset-top, 0px) + 0.6rem))',
+          left: '1rem',
+          right: '1rem',
+          maxWidth: 1360,
+          margin: '0 auto',
           zIndex: 999,
-          padding: scrolled ? '0.75rem 1.5rem' : '1rem 1.5rem',
+          padding: scrolled ? '0.65rem 1.35rem' : '0.85rem 1.5rem',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          transition: 'all 0.3s ease',
-          background: scrolled ? undefined : 'var(--ivory)',
-          borderRadius: 0,
-          borderLeft: 'none',
-          borderRight: 'none',
-          borderTop: 'none',
+          borderRadius: '1.75rem',
+          transition: 'padding 0.3s ease, border-radius 0.3s ease',
         }}
       >
         {/* Logo */}
@@ -99,7 +97,7 @@ const Navbar: React.FC<Props> = ({ onNavigateProjects, onNavigateAnchor, route }
           }}
         >
           <img
-            src="/logo-icon.png"
+            src="/favicon.png"
             alt="Tuning Ideas logo"
             width={54}
             height={54}
@@ -195,11 +193,11 @@ const Navbar: React.FC<Props> = ({ onNavigateProjects, onNavigateAnchor, route }
         {/* Mobile hamburger — visible below lg breakpoint */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className={`flex lg:hidden ${menuOpen ? 'glass' : ''}`}
+          className={`flex lg:hidden ${menuOpen ? 'glass-nav-scrolled' : ''}`}
           style={{
             background: menuOpen ? undefined : 'none',
             border: menuOpen ? undefined : 'none',
-            borderRadius: '0.6rem',
+            borderRadius: '50%',
             width: 40,
             height: 40,
             cursor: 'pointer',
@@ -244,16 +242,16 @@ const Navbar: React.FC<Props> = ({ onNavigateProjects, onNavigateAnchor, route }
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -12, scale: 0.97 }}
               transition={{ duration: 0.22, ease: 'easeOut' }}
-              className="lg:hidden glass-strong"
+              className="lg:hidden glass-nav-scrolled"
               style={{
                 position: 'fixed',
-                top: scrolled ? '4.75rem' : '5.25rem',
+                top: scrolled ? '5.5rem' : '6rem',
                 right: '1rem',
                 left: '1rem',
                 maxWidth: 340,
                 marginLeft: 'auto',
                 zIndex: 997,
-                borderRadius: '1.25rem',
+                borderRadius: '1.75rem',
                 padding: '0.75rem',
                 maxHeight: 'calc(100vh - 7rem)',
                 overflowY: 'auto',
@@ -274,7 +272,7 @@ const Navbar: React.FC<Props> = ({ onNavigateProjects, onNavigateAnchor, route }
                       textAlign: 'left',
                       background: isActive ? 'var(--copper-pale)' : 'transparent',
                       border: 'none',
-                      borderRadius: '0.85rem',
+                      borderRadius: '1.1rem',
                       padding: '0.85rem 0.9rem',
                       cursor: 'pointer',
                       fontFamily: '"Manrope", sans-serif',
