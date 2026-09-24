@@ -16,6 +16,18 @@
     --text-muted: #7A7570;
     --border-color: #D4C4A0;
     --shadow: rgba(28, 28, 26, 0.08);
+
+    /* Liquid-glass design tokens — translucent, blurred panels in the Apple UI style.
+       These ride on top of whatever is behind them, so they work with the existing
+       ivory/copper palette without needing a separate color scheme. */
+    --glass-bg: rgba(255, 255, 255, 0.55);
+    --glass-bg-strong: rgba(255, 255, 255, 0.72);
+    --glass-border: rgba(255, 255, 255, 0.5);
+    --glass-shadow: 0 8px 32px rgba(28, 28, 26, 0.14);
+    --glass-dark-bg: rgba(28, 28, 26, 0.5);
+    --glass-dark-bg-strong: rgba(28, 28, 26, 0.68);
+    --glass-dark-border: rgba(245, 240, 232, 0.16);
+    --glass-dark-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
   }
 
   html {
@@ -39,6 +51,41 @@
 }
 
 @layer components {
+  /* Liquid-glass panels — frosted, translucent surfaces for nav bars, sheets,
+     and floating controls. `.glass` / `.glass-strong` sit on light backgrounds;
+     the `-dark` variants sit on the charcoal footer or over photos/gradients. */
+  .glass {
+    background: var(--glass-bg);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  }
+
+  .glass-strong {
+    background: var(--glass-bg-strong);
+    -webkit-backdrop-filter: blur(28px) saturate(180%);
+    backdrop-filter: blur(28px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  }
+
+  .glass-dark {
+    background: var(--glass-dark-bg);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    backdrop-filter: blur(18px) saturate(160%);
+    border: 1px solid var(--glass-dark-border);
+    box-shadow: var(--glass-dark-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+
+  .glass-dark-strong {
+    background: var(--glass-dark-bg-strong);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    backdrop-filter: blur(24px) saturate(160%);
+    border: 1px solid var(--glass-dark-border);
+    box-shadow: var(--glass-dark-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+
   .section-label {
     display: block;
     font-size: 0.7rem;

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tuning Ideas – Logo Reveal</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Manrope:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f0e8;--ink:#1c1b18;--copper:#b07a45;--muted:#6b645a;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html,body{height:100%;min-height:100dvh;overflow:hidden;margin:0;background:var(--bg)}
+body{display:flex;align-items:center;justify-content:center;
+background:radial-gradient(ellipse at 70% 40%,#efe7da 0%,var(--bg) 60%)}
+svg{width:min(90vw,720px);height:auto;display:block;animation:stage 13s infinite}
+#thread{fill:none;stroke:var(--ink);stroke-width:13;stroke-linecap:round;stroke-linejoin:round;animation:draw 13s infinite}
+#brain{animation:slide 13s infinite}
+.name{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:88px;letter-spacing:-1px;fill:var(--ink)}
+.name .i{font-style:italic;fill:var(--copper)}
+.tag{font-family:Manrope,"Helvetica Neue",Arial,sans-serif;font-weight:400;font-size:26px;letter-spacing:1.8px;fill:var(--muted)}
+#name{opacity:0;animation:name 13s infinite}
+#tag{opacity:0;animation:tag 13s infinite}
+/* 0–5.5s thread draws at centre · hold · slide left · name · tagline · hold · fade · loop */
+@keyframes stage{0%,92%{opacity:1}97%,100%{opacity:0}}
+@keyframes draw{0%{stroke-dashoffset:var(--L);animation-timing-function:cubic-bezier(.45,.05,.4,1)}42%,100%{stroke-dashoffset:0}}
+@keyframes slide{0%,48%{transform:translateX(0);animation-timing-function:cubic-bezier(.65,0,.25,1)}64%,100%{transform:translateX(-248px)}}
+@keyframes name{0%,62%{opacity:0;transform:translateX(-30px);animation-timing-function:ease-out}70%,100%{opacity:1;transform:translateX(0)}}
+@keyframes tag{0%,71%{opacity:0;transform:translateX(-20px);animation-timing-function:ease-out}79%,100%{opacity:1;transform:translateX(0)}}
+@media (prefers-reduced-motion:reduce){svg,#thread,#name,#tag{animation:none;opacity:1;stroke-dashoffset:0}#brain{animation:none;transform:translateX(-248px)}}
+</style></head>
+<body>
+<svg viewBox="80 0 1040 480" role="img" aria-label="Tuning Ideas – From Ideas to Reality">
+  <g id="brain"><g transform="translate(263,-138) scale(.55)"><path id="thread" d=""/></g></g>
+  <text id="name" class="name" x="615" y="244">Tuning <tspan class="i">Ideas</tspan></text>
+  <text id="tag" class="tag" x="620" y="294">From Ideas to Reality</text>
+</svg>
+<script>
+const P=[[560,995],[566,945],[600,905],[650,868],[684,825],[672,778],[630,758],[590,768],[566,795],[580,820],[608,812],[612,785],[585,758],
+[540,735],[490,712],[440,685],[412,645],[425,595],[470,555],[530,535],[580,560],[625,610],[670,660],[720,690],[775,685],[820,655],[835,618],
+[780,632],[738,615],[724,585],[748,556],[790,565],[812,600],[850,628],[895,605],[915,560],[890,515],[830,485],[760,480],[690,500],[620,540],
+[560,595],[528,640],[540,680],[590,705],[660,718],[705,750],[740,795],[785,815],[830,805],[862,775],[866,735],[840,712],[815,725],[822,748],
+[860,745],[905,720],[950,680],[982,625],[980,565],[945,505],[890,450],[820,412],[740,385],[670,378],[620,392],[590,430],[604,475],[640,470],
+[648,435],[618,405],[560,398],[500,398],[430,420],[375,465],[345,520],[352,575],[385,585],[395,555],[365,532],[320,545],[275,570],[243,620],
+[250,675],[290,715],[330,740],[375,735],[383,710],[355,695],[322,712],[312,760],[325,800],[365,825],[430,815],[500,815],[555,852]];
+let d=`M${P[0]}`;
+for(let i=0;i<P.length-1;i++){
+  const p0=P[i-1]||P[i],p1=P[i],p2=P[i+1],p3=P[i+2]||P[i+1];
+  d+=`C${p1[0]+(p2[0]-p0[0])/6},${p1[1]+(p2[1]-p0[1])/6} ${p2[0]-(p3[0]-p1[0])/6},${p2[1]-(p3[1]-p1[1])/6} ${p2}`;
+}
+const t=document.getElementById('thread');
+t.setAttribute('d',d);
+const L=Math.ceil(t.getTotalLength());
+t.style.strokeDasharray=L+' '+L;
+t.style.setProperty('--L',L);
+t.style.strokeDashoffset=L;
+</script>
+</body></html>

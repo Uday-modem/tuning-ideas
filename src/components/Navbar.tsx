@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Home, Info, Wrench, GraduationCap, Briefcase, Star, ArrowRight } from 'lucide-react';
 import type { Route } from '../hooks/useHashRoute';
 
 interface NavLinkItem {
   label: string;
   href: string;
   isProjectsRoute?: boolean;
+  icon: React.ReactNode;
 }
 
 const navLinks: NavLinkItem[] = [
-  { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
-  { label: 'Services', href: '#services' },
-  { label: 'Academic Projects', href: '#/projects', isProjectsRoute: true },
-  { label: 'Work', href: '#work' },
-  { label: 'Reviews', href: '#reviews' },
+  { label: 'Home', href: '#home', icon: <Home size={17} /> },
+  { label: 'About', href: '#about', icon: <Info size={17} /> },
+  { label: 'Services', href: '#services', icon: <Wrench size={17} /> },
+  { label: 'Academic Projects', href: '#/projects', isProjectsRoute: true, icon: <GraduationCap size={17} /> },
+  { label: 'Work', href: '#work', icon: <Briefcase size={17} /> },
+  { label: 'Reviews', href: '#reviews', icon: <Star size={17} /> },
 ];
 
 interface Props {
@@ -34,6 +35,21 @@ const Navbar: React.FC<Props> = ({ onNavigateProjects, onNavigateAnchor, route }
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Lock page scroll while the mobile dropdown is open, close on Escape
+  useEffect(() => {
+    if (!menuOpen) return;
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setMenuOpen(false);
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      window.removeEventListener('keydown', onKeyDown);
+    };
+  }, [menuOpen]);
+
   const handleNavClick = (link: NavLinkItem) => {
     setMenuOpen(false);
     if (link.isProjectsRoute) {
@@ -49,6 +65,7 @@ const Navbar: React.FC<Props> = ({ onNavigateProjects, onNavigateAnchor, route }
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
+        className={scrolled ? 'glass' : ''}
         style={{
           position: 'fixed',
           top: 0,
@@ -60,14 +77,16 @@ const Navbar: React.FC<Props> = ({ onNavigateProjects, onNavigateAnchor, route }
           alignItems: 'center',
           justifyContent: 'space-between',
           transition: 'all 0.3s ease',
-          background: scrolled ? 'rgba(245, 240, 232, 0.95)' : 'var(--ivory)',
-          backdropFilter: scrolled ? 'blur(12px)' : 'none',
-          boxShadow: scrolled ? '0 2px 24px rgba(28,28,26,0.08)' : 'none',
+          background: scrolled ? undefined : 'var(--ivory)',
+          borderRadius: 0,
+          borderLeft: 'none',
+          borderRight: 'none',
+          borderTop: 'none',
         }}
       >
         {/* Logo */}
         <button
-          onClick={() => handleNavClick({ label: 'Home', href: '#home' })}
+          onClick={() => handleNavClick(navLinks[0])}
           style={{
             display: 'flex',
             alignItems: 'center',
@@ -80,7 +99,7 @@ const Navbar: React.FC<Props> = ({ onNavigateProjects, onNavigateAnchor, route }
           }}
         >
           <img
-            src="/favicon.png"
+            src="/logo-icon.png"
             alt="Tuning Ideas logo"
             width={54}
             height={54}
@@ -176,90 +195,137 @@ const Navbar: React.FC<Props> = ({ onNavigateProjects, onNavigateAnchor, route }
         {/* Mobile hamburger — visible below lg breakpoint */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="flex lg:hidden"
+          className={`flex lg:hidden ${menuOpen ? 'glass' : ''}`}
           style={{
-            background: 'none',
-            border: 'none',
+            background: menuOpen ? undefined : 'none',
+            border: menuOpen ? undefined : 'none',
+            borderRadius: '0.6rem',
+            width: 40,
+            height: 40,
             cursor: 'pointer',
             color: 'var(--charcoal)',
             alignItems: 'center',
             justifyContent: 'center',
             flexShrink: 0,
+            transition: 'background 0.2s',
           }}
           aria-label="Toggle menu"
+          aria-expanded={menuOpen}
         >
-          {menuOpen ? <X size={24} /> : <Menu size={24} />}
+          {menuOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
       </motion.nav>
 
-      {/* Mobile Menu */}
+      {/* Mobile dropdown menu — a small anchored panel, not a full-screen takeover */}
       <AnimatePresence>
         {menuOpen && (
-          <motion.div
-            initial={{ opacity: 0, x: '100%' }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: '100%' }}
-            transition={{ duration: 0.35, ease: 'easeInOut' }}
-            style={{
-              position: 'fixed',
-              inset: 0,
-              background: 'var(--ivory)',
-              zIndex: 998,
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '2rem',
-              padding: '2rem',
-              overflowY: 'auto',
-            }}
-          >
-            {navLinks.map((link, i) => {
-              const isActive = link.isProjectsRoute && route === 'projects';
-              return (
-                <motion.button
-                  key={link.href}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.08 }}
-                  onClick={() => handleNavClick(link)}
-                  style={{
-                    fontFamily: '"Cormorant Garamond", serif',
-                    fontSize: 'clamp(1.6rem, 6vw, 2.5rem)',
-                    fontWeight: 600,
-                    color: isActive ? 'var(--copper)' : 'var(--charcoal)',
-                    background: 'none',
-                    border: 'none',
-                    cursor: 'pointer',
-                    letterSpacing: '0.05em',
-                    textAlign: 'center',
-                  }}
-                  onMouseEnter={(e) =>
-                    ((e.currentTarget as HTMLButtonElement).style.color = 'var(--copper)')
-                  }
-                  onMouseLeave={(e) =>
-                    ((e.currentTarget as HTMLButtonElement).style.color = isActive
-                      ? 'var(--copper)'
-                      : 'var(--charcoal)')
-                  }
-                >
-                  {link.label}
-                </motion.button>
-              );
-            })}
-            <motion.button
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: navLinks.length * 0.08 }}
-              onClick={() => {
-                setMenuOpen(false);
-                onNavigateAnchor('#contact');
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              onClick={() => setMenuOpen(false)}
+              className="lg:hidden"
+              style={{
+                position: 'fixed',
+                inset: 0,
+                zIndex: 996,
+                background: 'rgba(28, 28, 26, 0.4)',
+                backdropFilter: 'blur(3px)',
+                WebkitBackdropFilter: 'blur(3px)',
               }}
-              className="btn-primary"
+            />
+
+            {/* Panel */}
+            <motion.div
+              initial={{ opacity: 0, y: -12, scale: 0.97 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -12, scale: 0.97 }}
+              transition={{ duration: 0.22, ease: 'easeOut' }}
+              className="lg:hidden glass-strong"
+              style={{
+                position: 'fixed',
+                top: scrolled ? '4.75rem' : '5.25rem',
+                right: '1rem',
+                left: '1rem',
+                maxWidth: 340,
+                marginLeft: 'auto',
+                zIndex: 997,
+                borderRadius: '1.25rem',
+                padding: '0.75rem',
+                maxHeight: 'calc(100vh - 7rem)',
+                overflowY: 'auto',
+              }}
             >
-              Start a Project →
-            </motion.button>
-          </motion.div>
+              {navLinks.map((link) => {
+                const isActive = link.isProjectsRoute && route === 'projects';
+                return (
+                  <button
+                    key={link.href}
+                    onClick={() => handleNavClick(link)}
+                    className="active:bg-copper-pale active:text-copper hover:bg-copper-pale hover:text-copper"
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.75rem',
+                      width: '100%',
+                      textAlign: 'left',
+                      background: isActive ? 'var(--copper-pale)' : 'transparent',
+                      border: 'none',
+                      borderRadius: '0.85rem',
+                      padding: '0.85rem 0.9rem',
+                      cursor: 'pointer',
+                      fontFamily: '"Manrope", sans-serif',
+                      fontSize: '0.92rem',
+                      fontWeight: 600,
+                      color: isActive ? 'var(--copper)' : 'var(--charcoal)',
+                      transition: 'background 0.15s, color 0.15s',
+                    }}
+                  >
+                    <span
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: isActive ? 'var(--copper)' : 'var(--text-muted)',
+                        flexShrink: 0,
+                      }}
+                    >
+                      {link.icon}
+                    </span>
+                    {link.label}
+                  </button>
+                );
+              })}
+
+              <div
+                style={{
+                  height: 1,
+                  background: 'var(--border-color)',
+                  margin: '0.6rem 0.4rem',
+                }}
+              />
+
+              <button
+                onClick={() => {
+                  setMenuOpen(false);
+                  onNavigateAnchor('#contact');
+                }}
+                className="btn-primary"
+                style={{
+                  width: '100%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.5rem',
+                }}
+              >
+                Start a Project <ArrowRight size={15} />
+              </button>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </>

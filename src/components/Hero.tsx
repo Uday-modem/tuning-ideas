@@ -234,16 +234,14 @@ const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 + i * 0.1 }}
+              className="glass"
               whileHover={{ y: -6, boxShadow: '0 12px 40px rgba(184,115,51,0.18)' }}
               style={{
-                background: 'white',
-                border: '1px solid var(--border-color)',
                 borderRadius: '1.25rem',
                 padding: '1.5rem 1.25rem',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '0.85rem',
-                boxShadow: '0 4px 24px rgba(28,28,26,0.08)',
                 cursor: 'default',
                 transition: 'box-shadow 0.3s',
               }}

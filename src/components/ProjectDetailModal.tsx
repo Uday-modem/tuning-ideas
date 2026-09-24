@@ -59,8 +59,8 @@ const ProjectDetailModal: React.FC<Props> = ({ project, onClose }) => {
             role="dialog"
             aria-modal="true"
             aria-label={project.title}
+            className="glass-strong"
             style={{
-              background: 'white',
               borderRadius: '1.4rem',
               maxWidth: 560,
               width: '100%',
@@ -68,7 +68,7 @@ const ProjectDetailModal: React.FC<Props> = ({ project, onClose }) => {
               display: 'flex',
               flexDirection: 'column',
               overflow: 'hidden',
-              boxShadow: '0 24px 70px rgba(0,0,0,0.35)',
+              boxShadow: '0 24px 70px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.7)',
             }}
           >
             {/* Header */}

@@ -84,8 +84,6 @@ const Contact: React.FC = () => {
   };
 
   const contactDetails = [
-    { icon: '👤', label: 'Founder & CEO', value: 'Modem Uday Kiran Kumar' },
-    { icon: '👥', label: 'Co-Founder', value: 'Sure Silpa' },
     { icon: '📞', label: 'Phone / WhatsApp', value: '+91 99498 26052' },
     { icon: '✉️', label: 'Email', value: CONTACT_EMAIL },
     { icon: '📍', label: 'Location', value: 'India' },

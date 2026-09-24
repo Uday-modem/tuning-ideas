@@ -23,10 +23,11 @@ const BackToTop: React.FC = () => {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.8 }}
           transition={{ duration: 0.22 }}
-          whileHover={{ scale: 1.1, background: 'var(--copper)' }}
+          whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
           onClick={scrollToTop}
           title="Back to top"
+          className="glass-dark"
           style={{
             position: 'fixed',
             bottom: '2rem',
@@ -35,15 +36,11 @@ const BackToTop: React.FC = () => {
             width: 44,
             height: 44,
             borderRadius: '50%',
-            background: 'var(--charcoal)',
             color: 'var(--ivory)',
-            border: 'none',
             cursor: 'pointer',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            boxShadow: '0 4px 16px rgba(28,28,26,0.18)',
-            transition: 'background 0.2s',
           }}
         >
           <ArrowUp size={18} />

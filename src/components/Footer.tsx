@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Users } from 'lucide-react';
 import { WHATSAPP_LINK, EMAIL_LINK, CONTACT_EMAIL } from '../utils/contactLinks';
+import FoundersModal from './FoundersModal';
 
 interface QuickLink {
   label: string;
@@ -39,6 +41,8 @@ interface Props {
 }
 
 const Footer: React.FC<Props> = ({ onNavigateProjects, onNavigateAnchor }) => {
+  const [foundersOpen, setFoundersOpen] = useState(false);
+
   const handleNav = (link: QuickLink) => {
     if (link.isProjectsRoute) {
       onNavigateProjects();
@@ -311,69 +315,36 @@ const Footer: React.FC<Props> = ({ onNavigateProjects, onNavigateAnchor }) => {
             marginBottom: '2rem',
           }}
         >
-          <div
+          <button
+            onClick={() => setFoundersOpen(true)}
+            className="glass-dark"
             style={{
-              fontFamily: '"Cormorant Garamond", serif',
-              fontSize: '1.1rem',
-              color: 'var(--copper-light)',
-              marginBottom: '1.25rem',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.55rem',
+              borderRadius: '100px',
+              padding: '0.65rem 1.3rem',
+              color: 'var(--ivory)',
+              cursor: 'pointer',
+              fontSize: '0.8rem',
               fontWeight: 600,
+              transition: 'background 0.2s, border-color 0.2s',
+            }}
+            onMouseEnter={(e) => {
+              const el = e.currentTarget as HTMLButtonElement;
+              el.style.background = 'var(--glass-dark-bg-strong)';
+            }}
+            onMouseLeave={(e) => {
+              const el = e.currentTarget as HTMLButtonElement;
+              el.style.background = 'var(--glass-dark-bg)';
             }}
           >
-            Leadership
-          </div>
-          <div
-            style={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              gap: '2.5rem',
-            }}
-          >
-            {[
-              { initials: 'MK', name: 'Modem Uday Kiran Kumar', role: 'Founder & CEO' },
-              { initials: 'SS', name: 'Sure Silpa', role: 'Co-Founder' },
-            ].map((founder) => (
-              <div key={founder.name} style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
-                <div
-                  style={{
-                    width: 44,
-                    height: 44,
-                    borderRadius: '50%',
-                    background: 'rgba(237,232,220,0.08)',
-                    border: '1px solid rgba(237,232,220,0.15)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontFamily: '"Cormorant Garamond", serif',
-                    fontSize: '1rem',
-                    fontWeight: 700,
-                    color: 'var(--copper-light)',
-                    flexShrink: 0,
-                  }}
-                >
-                  {founder.initials}
-                </div>
-                <div>
-                  <div style={{ fontWeight: 600, fontSize: '0.92rem', color: 'var(--ivory)' }}>
-                    {founder.name}
-                  </div>
-                  <div
-                    style={{
-                      fontSize: '0.68rem',
-                      color: 'var(--copper-light)',
-                      letterSpacing: '0.1em',
-                      textTransform: 'uppercase',
-                      fontWeight: 600,
-                      marginTop: '0.1rem',
-                    }}
-                  >
-                    {founder.role}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+            <Users size={16} color="var(--copper-light)" />
+            Meet Our Founders
+          </button>
         </div>
+
+        <FoundersModal open={foundersOpen} onClose={() => setFoundersOpen(false)} />
 
         {/* Bottom bar */}
         <div
