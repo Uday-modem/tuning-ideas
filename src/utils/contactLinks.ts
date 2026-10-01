@@ -25,3 +25,13 @@ export const getProjectEmailLink = (projectTitle: string, projectCode?: string):
   const body = `Hi Tuning Ideas team,\n\nI am interested and want details regarding the "${projectTitle}"${ref} project.\n\nPlease share more information.\n\nThanks.`;
   return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 };
+
+/**
+ * WhatsApp link pre-filled with the enquiry form contents (used by the Get-in-touch form,
+ * so enquiries reach the team even before Formspree/EmailJS is connected).
+ */
+export const getEnquiryWhatsAppLink = (lines: string[]): string =>
+  `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.filter(Boolean).join('\n'))}`;
+
+export const getEnquiryEmailLink = (subject: string, lines: string[]): string =>
+  `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.filter(Boolean).join('\n'))}`;

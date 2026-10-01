@@ -7,20 +7,20 @@ export default {
   theme: {
     extend: {
       colors: {
-        ivory: '#F5F0E8',
-        cream: '#EDE8DC',
-        charcoal: '#1C1C1A',
-        graphite: '#2E2D2B',
-        copper: '#B87333',
-        bronze: '#A0522D',
-        'copper-light': '#D4924A',
-        'copper-pale': '#F0DFC0',
-        'text-mid': '#4A4744',
-        'text-muted': '#7A7570',
-        border: '#D4C4A0',
+        ivory: '#0A0A0A',
+        cream: '#0D0D0D',
+        charcoal: '#F5F1EC',
+        graphite: '#141414',
+        copper: '#F0B79A',
+        bronze: '#F5C9AE',
+        'copper-light': '#F2A87D',
+        'copper-pale': 'rgba(240, 183, 154, 0.14)',
+        'text-mid': '#ACA7A0',
+        'text-muted': '#6E6963',
+        border: 'rgba(245, 241, 236, 0.10)',
       },
       fontFamily: {
-        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+        serif: ['"Manrope"', 'system-ui', 'sans-serif'],
         sans: ['Manrope', 'system-ui', 'sans-serif'],
       },
       borderRadius: {
