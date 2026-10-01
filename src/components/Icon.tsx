@@ -4,9 +4,10 @@ import {
   Code2, FileText, Mic, Award, Search, Rocket, Store, Building2, Briefcase, Sparkles, Lightbulb,
   Cpu, Brain, Target, Send, Users, BookOpen,
 } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 import type { IconKey } from '../content';
 
-const map: Record<IconKey, React.ComponentType<{ size?: number; strokeWidth?: number }>> = {
+const map: Record<IconKey, LucideIcon> = {
   globe: Globe, layers: Layers, cart: ShoppingCart, palette: Palette, wrench: Wrench, server: Server,
   workflow: Workflow, headphones: Headphones, cap: GraduationCap, code: Code2, file: FileText, mic: Mic,
   award: Award, search: Search, rocket: Rocket, store: Store, building: Building2, briefcase: Briefcase,
