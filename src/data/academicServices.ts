@@ -1,102 +1,20 @@
 import type { AcademicSupportService } from '../types';
 
+/**
+ * Student Lab = hands-on mentorship and prototyping. The student takes part in the work,
+ * writes their own documents, and can explain every part. (Academic-integrity positioning, UGC.)
+ */
 export const academicServices: AcademicSupportService[] = [
-  {
-    id: 1,
-    icon: '📄',
-    title: 'Project Abstract',
-    description:
-      'A clear, submission-ready abstract summarizing your project objective, methodology, and expected outcome.',
-  },
-  {
-    id: 2,
-    icon: '📚',
-    title: 'IEEE Base Paper / Reference Paper',
-    description:
-      'Relevant IEEE base papers and reference literature to support your project background and related-work section.',
-  },
-  {
-    id: 3,
-    icon: '📊',
-    title: 'Project Presentation (PPT)',
-    description:
-      'A well-structured PowerPoint presentation designed for reviews, seminars, and final viva presentations.',
-  },
-  {
-    id: 4,
-    icon: '🎤',
-    title: 'Project Review Assistance for Viva',
-    description:
-      'One-on-one guidance to prepare you for review sessions and final viva questions with confidence.',
-  },
-  {
-    id: 5,
-    icon: '🧩',
-    title: 'Project Diagrams',
-    description:
-      'Block diagrams, circuit diagrams, flowcharts, and architecture diagrams tailored to your project domain.',
-  },
-  {
-    id: 6,
-    icon: '💻',
-    title: 'Project Source Code',
-    description:
-      'Complete, working, well-commented source code with setup instructions for Arduino, Raspberry Pi, or Python-based projects.',
-  },
-  {
-    id: 7,
-    icon: '📘',
-    title: 'Project Report',
-    description:
-      'A full academic project report formatted as per college/university guidelines — ready for submission.',
-  },
-  {
-    id: 8,
-    icon: '🖼️',
-    title: 'Project Screenshots',
-    description:
-      'Clear output screenshots and result captures to document and demonstrate your working project.',
-  },
-  {
-    id: 9,
-    icon: '🎬',
-    title: 'Project Demo',
-    description:
-      'A live or recorded demo walkthrough showing your project working end-to-end before submission.',
-  },
-  {
-    id: 10,
-    icon: '🗣️',
-    title: 'Project Explanation',
-    description:
-      'Simplified, student-friendly explanation of how your project works so you can present it confidently.',
-  },
-  {
-    id: 11,
-    icon: '🛡️',
-    title: 'Plagiarism Documentation',
-    description:
-      'Plagiarism check reports for your project report and abstract to meet university originality requirements.',
-  },
-  {
-    id: 12,
-    icon: '🌍',
-    title: 'International Journal / Conference Publishing',
-    description:
-      'Support to publish your project work in international journals or conferences for an added academic edge.',
-  },
-  {
-    id: 13,
-    icon: '📜',
-    title: 'Project Acceptance Letter',
-    description:
-      'An official project acceptance letter confirming your project topic for internal submission requirements.',
-  },
-  {
-    id: 14,
-    icon: '🏅',
-    title: 'Project Completion Certificate',
-    description:
-      'A certificate of completion recognizing your successful project development under our guidance.',
-  },
+  { id: 1, icon: '🧭', title: 'Project Selection & Roadmap', description: 'Choose a title that fits your branch and deadline, and shape a milestone plan you understand and agree with.' },
+  { id: 2, icon: '🧩', title: 'Architecture & Circuit Diagrams', description: 'Block diagrams, circuit diagrams, flowcharts, and system architecture to study, review, and adapt for your project.' },
+  { id: 3, icon: '💻', title: 'Reference Implementations', description: 'Working reference code with setup notes, so you can study how it works, adapt it, and extend it yourself.' },
+  { id: 4, icon: '🛠️', title: 'Hands-on Prototyping', description: 'Build the hardware or software prototype together in guided sessions, so you learn every part by doing it.' },
+  { id: 5, icon: '🧪', title: 'Testing Assistance', description: 'Test plans, debugging help, and guidance on capturing and interpreting your own results.' },
+  { id: 6, icon: '🗣️', title: 'Technical Explanations', description: 'Simple, student-friendly explanations of how each component, algorithm, and block works.' },
+  { id: 7, icon: '📄', title: 'Documentation Templates', description: 'Structure and templates for your abstract and report, formatted to common college guidelines. You write the content.' },
+  { id: 8, icon: '📚', title: 'Reference Reading Guidance', description: 'Pointers to relevant IEEE and other reference papers, and how to read and cite them properly.' },
+  { id: 9, icon: '📊', title: 'Presentation Guidance', description: 'Help structuring your own presentation for reviews, seminars, and the final viva.' },
+  { id: 10, icon: '🎤', title: 'Viva Preparation', description: 'Mock questions, demo practice, and one-on-one review preparation so you can present with confidence.' },
+  { id: 11, icon: '🛡️', title: 'Academic Integrity Guidance', description: 'Referencing, citation, and writing in your own words, in line with UGC academic-integrity regulations and your institution’s policy.' },
+  { id: 12, icon: '🌍', title: 'Publication Guidance', description: 'Guidance on choosing journals or conferences and structuring a paper from your own project work.' },
 ];

@@ -5,6 +5,8 @@ import { cseProjects, departmentCategories, eceProjects, projectCounts } from '.
 import AcademicProjectCard from '../components/AcademicProjectCard';
 import ProjectDetailModal from '../components/ProjectDetailModal';
 import PageHero from '../components/PageHero';
+import IntegrityNote from '../components/sections/IntegrityNote';
+import { lab } from '../content';
 
 const PAGE_SIZE = 12;
 type Department = 'ECE' | 'CSE';
@@ -38,7 +40,7 @@ const AcademicProjectsPage: React.FC = () => {
 
   return (
     <>
-      <PageHero label="Student Lab · Catalogue" title={`${projectCounts.total}+ final year project titles.`} sub="Across Electronics (ECE) and Computer Science (CSE), each with objectives, tools, and full academic support from idea to viva." />
+      <PageHero label="Student Lab · Catalogue" title={`${projectCounts.total}+ final year project titles.`} sub="Across Electronics (ECE) and Computer Science (CSE), each with objectives and tools. End-to-end project development and mentorship, from idea to viva." />
       <section className="section-tight" style={{ paddingTop: 0 }}>
         <div className="wrap">
           <div className="filter-row" style={{ marginTop: 0 }}>
@@ -57,7 +59,7 @@ const AcademicProjectsPage: React.FC = () => {
           </div>
           <p style={{ textAlign: 'center', fontSize: '0.82rem', color: 'var(--text-faint)', margin: '1.6rem 0 1.2rem' }}>Showing {visible.length} of {filtered.length} matching titles in {department}</p>
           {visible.length > 0 ? (
-            <motion.div layout style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1.2rem' }}>
+            <motion.div layout style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px, 100%), 1fr))', gap: '1.2rem' }}>
               <AnimatePresence>
                 {visible.map((p, i) => (
                   <AcademicProjectCard key={p.code} project={p} index={i % PAGE_SIZE} isOpen={selectedCode === p.code} onOpen={() => setSelectedCode(p.code)} />
@@ -74,6 +76,7 @@ const AcademicProjectsPage: React.FC = () => {
           )}
         </div>
       </section>
+      <IntegrityNote side={lab} />
       <ProjectDetailModal project={selected} onClose={() => setSelectedCode(null)} />
     </>
   );

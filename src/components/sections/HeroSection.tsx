@@ -47,7 +47,11 @@ const HeroSection: React.FC<Props> = ({ side }) => {
           </motion.div>
         </div>
         <motion.div {...fade(0.3)}>
-          <Bubbles />
+          <Bubbles
+            winTitle="You won!"
+            winText="You popped them all. Now let’s get to work."
+            actions={[{ label: side.key === 'digital' ? 'Start a project' : 'Get guidance', to: `${side.path}/contact` }]}
+          />
         </motion.div>
       </div>
     </section>

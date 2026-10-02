@@ -47,13 +47,17 @@ const Landing: React.FC = () => {
               <Link to="/lab" className="pillar-card" style={{ ['--pc' as string]: GREEN } as React.CSSProperties}>
                 <GraduationCap size={22} color={GREEN} />
                 <h3>Student Lab</h3>
-                <p>Embedded, IoT, AI/ML, and full stack final year projects with full support.</p>
+                <p>End-to-end project development and mentorship for Embedded, IoT, AI/ML, and full stack final year projects.</p>
                 <span className="go">Enter <ArrowRight size={14} /></span>
               </Link>
             </motion.div>
           </div>
           <motion.div {...up(0.3)}>
-            <Bubbles />
+            <Bubbles
+              winTitle="You won!"
+              winText="You popped them all. Now pick your side and let’s get to work."
+              actions={[{ label: 'Digital Solutions', to: '/digital' }, { label: 'Student Lab', to: '/lab' }]}
+            />
           </motion.div>
         </div>
       </section>
@@ -70,14 +74,14 @@ const Landing: React.FC = () => {
               <svg viewBox="0 0 760 70" style={{ width: '100%', display: 'block' }} aria-hidden="true">
                 <path d="M380 0 V28 M190 28 H570 M190 28 V70 M570 28 V70" stroke="rgba(245,240,232,0.3)" strokeWidth="1.2" strokeDasharray="3 5" fill="none" />
               </svg>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.2rem' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(260px, 100%), 1fr))', gap: '1.2rem' }}>
                 <Link to="/digital" className="card" style={{ padding: '1.6rem', display: 'block', borderColor: 'rgba(212,146,74,0.35)' }}>
                   <h3 style={{ fontSize: '1.3rem', marginBottom: '0.5rem' }}>Digital Solutions</h3>
                   <p style={{ color: 'var(--text-dim)', fontSize: '0.9rem', lineHeight: 1.65 }}>About, services, work, and reviews for businesses that want websites, stores, and systems that keep working.</p>
                 </Link>
                 <Link to="/lab" className="card" style={{ padding: '1.6rem', display: 'block', borderColor: 'rgba(156,197,161,0.35)' }}>
                   <h3 style={{ fontSize: '1.3rem', marginBottom: '0.5rem' }}>Student Lab</h3>
-                  <p style={{ color: 'var(--text-dim)', fontSize: '0.9rem', lineHeight: 1.65 }}>Project catalogue, services, work, and reviews for Diploma, B.Tech, and M.Tech students.</p>
+                  <p style={{ color: 'var(--text-dim)', fontSize: '0.9rem', lineHeight: 1.65 }}>Project catalogue, mentorship, prototyping, and reviews for Diploma, B.Tech, and M.Tech students.</p>
                 </Link>
               </div>
             </div>

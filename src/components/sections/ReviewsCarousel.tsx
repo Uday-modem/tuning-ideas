@@ -62,7 +62,7 @@ const ReviewsCarousel: React.FC<Props> = ({ side, expandable = false }) => {
                 animate={{ opacity: 1, y: 0 }}
                 style={{ textAlign: 'left' }}
               >
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.2rem' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: '1.2rem' }}>
                   {items.map((r) => (
                     <div className="card" key={r.id} style={{ padding: '1.6rem' }}>
                       <p style={{ lineHeight: 1.6, marginBottom: '1.1rem' }}>“{r.quote}”</p>

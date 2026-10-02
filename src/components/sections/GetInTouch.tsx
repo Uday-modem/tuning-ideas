@@ -104,7 +104,7 @@ const GetInTouch: React.FC<Props> = ({ side, bare = false }) => {
                 <input id="f-name" name="name" className={`input${errors.name ? ' err' : ''}`} value={form.name} onChange={change} placeholder="Your full name" autoComplete="name" />
                 {errors.name && <span className="err-text">{errors.name}</span>}
               </div>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))', gap: '0 1rem' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(190px, 100%), 1fr))', gap: '0 1rem' }}>
                 <div className="field">
                   <label htmlFor="f-email">Email</label>
                   <input id="f-email" name="email" type="email" className={`input${errors.email ? ' err' : ''}`} value={form.email} onChange={change} placeholder="you@example.com" autoComplete="email" />

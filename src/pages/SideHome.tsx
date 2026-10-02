@@ -10,6 +10,7 @@ import ProgressArc from '../components/sections/ProgressArc';
 import SelectedWork from '../components/sections/SelectedWork';
 import ReviewsCarousel from '../components/sections/ReviewsCarousel';
 import GetInTouch from '../components/sections/GetInTouch';
+import IntegrityNote from '../components/sections/IntegrityNote';
 
 interface Props {
   side: SideContent;
@@ -28,6 +29,7 @@ const SideHome: React.FC<Props> = ({ side }) => {
       {isDigital && <AboutTeaser side={side} />}
       <ProblemCards side={side} />
       <ServicesGrid side={side} limit={4} />
+      {!isDigital && <IntegrityNote side={side} />}
       <WhoWeServe side={side} />
       <StackMarquee />
       <ProgressArc side={side} />

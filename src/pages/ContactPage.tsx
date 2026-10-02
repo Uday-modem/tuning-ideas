@@ -15,7 +15,7 @@ const ContactPage: React.FC<Props> = ({ side }) => {
       <PageHero label={`Contact · ${side.name}`} title={side.contact.title} sub={side.contact.sub} />
       <GetInTouch side={side} bare />
       <section className="section">
-        <div className="wrap" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem', alignItems: 'start' }}>
+        <div className="wrap" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap: '3rem', alignItems: 'start' }}>
           <SectionHead label="Common questions" title="Questions you might have." align="left" />
           <div>
             {side.faqs.map((f, i) => (

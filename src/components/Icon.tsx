@@ -1,10 +1,10 @@
+import type { LucideIcon } from 'lucide-react';
 import React from 'react';
 import {
   Globe, Layers, ShoppingCart, Palette, Wrench, Server, Workflow, Headphones, GraduationCap,
   Code2, FileText, Mic, Award, Search, Rocket, Store, Building2, Briefcase, Sparkles, Lightbulb,
-  Cpu, Brain, Target, Send, Users, BookOpen,
+  Cpu, Brain, Target, Send, Users, BookOpen, ShieldCheck,
 } from 'lucide-react';
-import type { LucideIcon } from 'lucide-react';
 import type { IconKey } from '../content';
 
 const map: Record<IconKey, LucideIcon> = {
@@ -12,7 +12,7 @@ const map: Record<IconKey, LucideIcon> = {
   workflow: Workflow, headphones: Headphones, cap: GraduationCap, code: Code2, file: FileText, mic: Mic,
   award: Award, search: Search, rocket: Rocket, store: Store, building: Building2, briefcase: Briefcase,
   sparkles: Sparkles, lightbulb: Lightbulb, cpu: Cpu, brain: Brain, target: Target, send: Send,
-  users: Users, book: BookOpen,
+  users: Users, book: BookOpen, shield: ShieldCheck,
 };
 
 interface Props {

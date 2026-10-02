@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import type { SideContent } from '../content';
-import Art from '../components/Art';
+import WorkImage from '../components/WorkImage';
 import Link from '../components/Link';
 import PageHero from '../components/PageHero';
 import { Fade, SectionHead } from '../components/Reveal';
@@ -45,7 +45,7 @@ const WorkPage: React.FC<Props> = ({ side, detail }) => {
         <section className="section-tight">
           <div className="wrap">
             <Link to={`${side.path}/work`} className="btn btn-ghost btn-sm"><ArrowLeft size={14} /> All work</Link>
-            <div className="case-art" style={{ height: 300, marginTop: '1.5rem', borderRadius: 20 }}><Art seed={current.seed} /></div>
+            <div className="case-art case-art-lg"><WorkImage name={current.image} seed={current.seed} alt={current.headline} /></div>
             <div className="detail-grid"><h3>The problem</h3><p style={{ color: 'var(--text-dim)', lineHeight: 1.8, maxWidth: 640 }}>{current.problem}</p></div>
             <div className="detail-grid"><h3>The approach</h3><ul>{current.approach.map((a) => <li key={a}>{a}</li>)}</ul></div>
             <div className="detail-grid"><h3>The result</h3><ul>{current.results.map((a) => <li key={a}>{a}</li>)}</ul></div>
@@ -56,7 +56,7 @@ const WorkPage: React.FC<Props> = ({ side, detail }) => {
                 <div className="case-grid">
                   {related.map((r) => (
                     <Link key={r.id} to={`${side.path}/work/${r.id}`} className="card case-card">
-                      <div className="case-art"><Art seed={r.seed} /></div>
+                      <div className="case-art"><WorkImage name={r.image} seed={r.seed} alt={r.headline} /></div>
                       <span className="tag accent" style={{ alignSelf: 'flex-start' }}>{r.status}</span>
                       <h3>{r.headline}</h3>
                     </Link>
@@ -86,7 +86,7 @@ const WorkPage: React.FC<Props> = ({ side, detail }) => {
             {shown.map((w) => (
               <Fade key={w.id}>
                 <Link to={`${side.path}/work/${w.id}`} className="card case-card" style={{ display: 'flex', height: '100%' }}>
-                  <div className="case-art"><Art seed={w.seed} /></div>
+                  <div className="case-art"><WorkImage name={w.image} seed={w.seed} alt={w.headline} /></div>
                   <div className="sw-meta"><span className="tag accent">{w.status}</span><span>{w.tag}</span></div>
                   <h3>{w.headline}</h3>
                   <p>{w.summary}</p>

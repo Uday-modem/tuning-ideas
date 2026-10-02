@@ -7,6 +7,7 @@ import Link from '../components/Link';
 import PageHero from '../components/PageHero';
 import { Fade, SectionHead } from '../components/Reveal';
 import CtaBand from '../components/sections/CtaBand';
+import IntegrityNote from '../components/sections/IntegrityNote';
 
 interface Props {
   side: SideContent;
@@ -52,8 +53,8 @@ const ServicesPage: React.FC<Props> = ({ side }) => {
       {side.key === 'lab' && (
         <section className="section-tight">
           <div className="wrap">
-            <SectionHead label="Complete list" title={`All ${academicServices.length} deliverables.`} sub="Everything a Diploma, B.Tech, or M.Tech student can ask us for." />
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1rem', marginTop: '2.5rem' }}>
+            <SectionHead label="How we mentor you" title={`${academicServices.length} areas of support.`} sub="Everything a Diploma, B.Tech, or M.Tech student can ask us for. You take part in every step." />
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(280px, 100%), 1fr))', gap: '1rem', marginTop: '2.5rem' }}>
               {academicServices.map((a) => (
                 <Fade key={a.id}>
                   <div className="card" style={{ padding: '1.2rem 1.3rem', display: 'flex', gap: '0.9rem', height: '100%' }}>
@@ -69,6 +70,8 @@ const ServicesPage: React.FC<Props> = ({ side }) => {
           </div>
         </section>
       )}
+
+      {side.key === 'lab' && <IntegrityNote side={side} />}
 
       <section className="section-tight">
         <div className="wrap">

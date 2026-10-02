@@ -10,7 +10,7 @@ const ReviewsPage: React.FC<Props> = ({ side }) => (
   <>
     <PageHero label={`Reviews · ${side.name}`} title={side.reviews.title} sub={side.reviews.sub} />
     <section className="section-tight">
-      <div className="wrap" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.4rem' }}>
+      <div className="wrap" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap: '1.4rem' }}>
         {side.reviews.items.map((r) => (
           <Fade key={r.id}>
             <figure className="card" style={{ margin: 0, padding: '2rem', height: '100%', display: 'flex', flexDirection: 'column', gap: '1.4rem' }}>

@@ -3,7 +3,7 @@ export type Side = 'digital' | 'lab';
 export type IconKey =
   | 'globe' | 'layers' | 'cart' | 'palette' | 'wrench' | 'server' | 'workflow' | 'headphones'
   | 'cap' | 'code' | 'file' | 'mic' | 'award' | 'search' | 'rocket' | 'store' | 'building'
-  | 'briefcase' | 'sparkles' | 'lightbulb' | 'cpu' | 'brain' | 'target' | 'send' | 'users' | 'book';
+  | 'briefcase' | 'shield' | 'sparkles' | 'lightbulb' | 'cpu' | 'brain' | 'target' | 'send' | 'users' | 'book';
 
 export interface ServiceItem {
   id: string;
@@ -44,6 +44,8 @@ export interface WorkItem {
   tech: string[];
   status: 'Completed' | 'Concept / Demo' | 'Ready to build';
   seed: number;
+  /** image file in /public without extension (DS1, SLS1 …). Optional: falls back to generated art. */
+  image?: string;
   problem: string;
   approach: string[];
   results: string[];
@@ -122,6 +124,8 @@ export interface SideContent {
   progress: { label: string; title: string; sub: string; steps: ProgressStep[] };
   work: { label: string; title: string; sub: string; pageTitle: string; pageSub: string; items: WorkItem[] };
   reviews: { label: string; title: string; sub: string; items: Review[] };
+  /** optional academic-integrity statement shown on Student Lab pages */
+  integrity?: { title: string; body: string; points: string[] };
   about: AboutContent;
   faqs: Faq[];
   contact: { label: string; title: string; sub: string; options: string[]; intro: string };

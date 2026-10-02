@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import type { MotionValue } from 'framer-motion';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 import type { SideContent, WorkItem } from '../../content';
-import Art from '../Art';
+import WorkImage from '../WorkImage';
 import Link from '../Link';
 import { SectionHead } from '../Reveal';
 
@@ -48,7 +48,7 @@ const StackCard: React.FC<CardProps> = ({ item, index, total, progress, base }) 
           </div>
         </div>
         <div className="sw-art">
-          <Art seed={item.seed} />
+          <WorkImage name={item.image} seed={item.seed} alt={item.headline} />
         </div>
       </div>
     </motion.div>

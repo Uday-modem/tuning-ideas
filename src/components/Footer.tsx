@@ -1,6 +1,6 @@
 import React from 'react';
 import { Mail, MessageCircle } from 'lucide-react';
-import { founders, sides } from '../content';
+import { team, sides } from '../content';
 import type { Side } from '../content';
 import { CONTACT_EMAIL, EMAIL_LINK, WHATSAPP_LINK } from '../utils/contactLinks';
 import Link from './Link';
@@ -52,7 +52,7 @@ const Footer: React.FC<Props> = ({ side }) => {
           )}
 
           <div>
-            <h5>{s ? 'Other pillar' : 'Founders'}</h5>
+            <h5>{s ? 'Other pillar' : 'Team'}</h5>
             <ul>
               {s ? (
                 <li>
@@ -61,19 +61,15 @@ const Footer: React.FC<Props> = ({ side }) => {
                   </Link>
                 </li>
               ) : (
-                founders.map((f) => (
-                  <li key={f.name} style={{ color: 'var(--text-dim)', fontSize: '0.88rem' }}>
-                    {f.name}
-                    <br />
-                    <span style={{ color: 'var(--text-faint)', fontSize: '0.78rem' }}>{f.role}</span>
-                  </li>
+                team.map((f) => (
+                  <li key={f.name} style={{ color: 'var(--text-dim)', fontSize: '0.88rem' }}>{f.name}</li>
                 ))
               )}
             </ul>
           </div>
         </div>
         <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.6rem', color: 'var(--text-faint)', fontSize: '0.8rem' }}>
-          <span>© 2026 Tuning Ideas. Founded by Modem Uday Kiran Kumar.</span>
+          <span>© 2026 Tuning Ideas. All rights reserved.</span>
           <span>Technology &amp; Product Company</span>
         </div>
         <div className="footer-word" aria-hidden="true">Tuning Ideas</div>

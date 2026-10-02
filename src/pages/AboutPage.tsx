@@ -1,9 +1,10 @@
 import React from 'react';
 import type { SideContent } from '../content';
-import { founders } from '../content';
+import { team } from '../content';
 import PageHero from '../components/PageHero';
 import { Fade, SectionHead } from '../components/Reveal';
 import CtaBand from '../components/sections/CtaBand';
+import IntegrityNote from '../components/sections/IntegrityNote';
 
 interface Props {
   side: SideContent;
@@ -16,7 +17,7 @@ const AboutPage: React.FC<Props> = ({ side }) => {
       <PageHero label={`About · ${side.name}`} title={a.heroTitle} sub={a.heroSub} />
 
       <section className="section" style={{ paddingTop: '2rem' }}>
-        <div className="wrap" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem', alignItems: 'start' }}>
+        <div className="wrap" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap: '3rem', alignItems: 'start' }}>
           <SectionHead label={a.storyLabel} title={a.storyTitle} align="left" />
           <Fade>
             <div style={{ display: 'grid', gap: '1.2rem', color: 'var(--text-dim)', lineHeight: 1.85, fontSize: '1.02rem' }}>
@@ -54,18 +55,17 @@ const AboutPage: React.FC<Props> = ({ side }) => {
         </div>
       </section>
 
+      {side.key === 'lab' && <IntegrityNote side={side} />}
+
       <section className="section-tight">
         <div className="wrap">
           <SectionHead label="The team" title="Small team. Direct access." sub="You work with the people who scope and build your project." />
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.2rem', maxWidth: 720, margin: '2.5rem auto 0' }}>
-            {founders.map((f) => (
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: '1.2rem', maxWidth: 720, margin: '2.5rem auto 0' }}>
+            {team.map((f) => (
               <Fade key={f.name}>
                 <div className="card founder">
                   <span className="av" aria-hidden="true">{f.initials}</span>
-                  <div>
-                    <div style={{ fontWeight: 600 }}>{f.name}</div>
-                    <div style={{ color: 'var(--text-dim)', fontSize: '0.86rem' }}>{f.role}</div>
-                  </div>
+                  <div style={{ fontWeight: 600 }}>{f.name}</div>
                 </div>
               </Fade>
             ))}

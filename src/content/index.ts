@@ -7,9 +7,9 @@ export { digital, lab };
 
 export const sides: Record<Side, SideContent> = { digital, lab };
 
-export const founders = [
-  { initials: 'MK', name: 'Modem Uday Kiran Kumar', role: 'Founder & CEO' },
-  { initials: 'SS', name: 'Sure Silpa', role: 'Co-Founder' },
+export const team = [
+  { initials: 'MK', name: 'Modem Uday Kiran Kumar' },
+  { initials: 'SS', name: 'Sure Silpa' },
 ];
 
 /** Exact text required by the brief for the "Our stack, connected" section. */

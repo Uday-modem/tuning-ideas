@@ -19,7 +19,7 @@ const ScrollCard: React.FC<Props> = ({ children, from, tilt = 8, className }) =>
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start 98%', 'start 58%'] });
   const dir = from === 'left' ? -1 : 1;
-  const x = useTransform(scrollYProgress, [0, 1], [`${dir * 55}%`, '0%']);
+  const x = useTransform(scrollYProgress, [0, 1], [`${dir * 40}%`, '0%']);
   const rotate = useTransform(scrollYProgress, [0, 1], [dir * tilt, 0]);
   const opacity = useTransform(scrollYProgress, [0, 0.55], [0, 1]);
   return (
