@@ -7,10 +7,8 @@ export { digital, lab };
 
 export const sides: Record<Side, SideContent> = { digital, lab };
 
-export const team = [
-  { initials: 'MK', name: 'Modem Uday Kiran Kumar' },
-  { initials: 'SS', name: 'Sure Silpa' },
-];
+/** Credit shown on the About page and in the footer. */
+export const credit = { prefix: 'Developed and Designed by', name: 'Uday Modem' };
 
 /** Exact text required by the brief for the "Our stack, connected" section. */
 export const stackSection = {

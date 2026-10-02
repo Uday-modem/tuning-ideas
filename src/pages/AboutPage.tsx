@@ -1,6 +1,6 @@
 import React from 'react';
 import type { SideContent } from '../content';
-import { team } from '../content';
+import { credit } from '../content';
 import PageHero from '../components/PageHero';
 import { Fade, SectionHead } from '../components/Reveal';
 import CtaBand from '../components/sections/CtaBand';
@@ -59,17 +59,12 @@ const AboutPage: React.FC<Props> = ({ side }) => {
 
       <section className="section-tight">
         <div className="wrap">
-          <SectionHead label="The team" title="Small team. Direct access." sub="You work with the people who scope and build your project." />
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: '1.2rem', maxWidth: 720, margin: '2.5rem auto 0' }}>
-            {team.map((f) => (
-              <Fade key={f.name}>
-                <div className="card founder">
-                  <span className="av" aria-hidden="true">{f.initials}</span>
-                  <div style={{ fontWeight: 600 }}>{f.name}</div>
-                </div>
-              </Fade>
-            ))}
-          </div>
+          <Fade>
+            <p style={{ textAlign: 'center', color: 'var(--text-dim)', fontSize: '1rem' }}>
+              {credit.prefix}{' '}
+              <strong style={{ color: 'var(--accent)', fontWeight: 600 }}>{credit.name}</strong>
+            </p>
+          </Fade>
         </div>
       </section>
 

@@ -65,7 +65,7 @@ const Landing: React.FC = () => {
 
       <section className="section" style={{ paddingTop: '3rem' }}>
         <div className="wrap">
-          <SectionHead label="How we’re organised" title="One company, two pillars." sub="Same team, same standards. Each pillar has its own services, work, and support." />
+          <SectionHead label="How we’re organised" title="One company, two pillars." sub="Same standards, same care. Each pillar has its own services, work, and support." />
           <Fade delay={0.1} style={{ marginTop: '3.5rem' }}>
             <div style={{ maxWidth: 760, margin: '0 auto' }}>
               <div className="card" style={{ padding: '1.4rem', textAlign: 'center', maxWidth: 340, margin: '0 auto' }}>

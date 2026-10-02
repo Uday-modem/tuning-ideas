@@ -288,7 +288,7 @@ export const digital: SideContent = {
   },
 
   about: {
-    heroTitle: 'The team behind Tuning Ideas.',
+    heroTitle: 'The story behind Tuning Ideas.',
     heroSub: 'A full stack development and digital solutions brand that helps businesses move from a simple online presence to powerful digital systems.',
     storyLabel: 'Our story',
     storyTitle: 'Built to turn ideas into working products.',
@@ -309,7 +309,7 @@ export const digital: SideContent = {
       { value: '8', label: 'Digital services' },
       { value: '4', label: 'Steps from idea to launch' },
       { value: '24/7', label: 'Assistance plans available' },
-      { value: '2', label: 'Team members, hands-on' },
+      { value: '5', label: 'Projects, delivered and in concept' },
     ],
     ctaTitle: 'Have an idea worth building?',
     ctaSub: 'Tell us about it. We’ll reply with honest next steps.',
