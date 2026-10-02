@@ -26,7 +26,7 @@ const Landing: React.FC = () => {
         <PixelField variant="left" />
         <div className="hero-fade" />
         <div className="wrap hero-grid">
-          <div>
+          <div data-lens-copy>
             <motion.span className="pill" {...up(0.05)}>
               <span className="pill-dot" />
               Technology &amp; Product Company
@@ -54,9 +54,10 @@ const Landing: React.FC = () => {
           </div>
           <motion.div {...up(0.3)}>
             <Bubbles
-              winTitle="You won!"
-              winText="You popped them all. Now pick your side and let’s get to work."
-              actions={[{ label: 'Digital Solutions', to: '/digital' }, { label: 'Student Lab', to: '/lab' }]}
+              winTitle="Welcome to Tuning Ideas"
+              winText="A technology and product company. Pick your side: Digital Solutions for businesses, or Student Lab for engineering students."
+              fireworks="both"
+              actions={[{ label: 'Digital Solutions', to: '/digital', tone: 'orange' }, { label: 'Student Lab', to: '/lab', tone: 'green' }]}
             />
           </motion.div>
         </div>

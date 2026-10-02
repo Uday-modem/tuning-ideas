@@ -220,16 +220,31 @@ button { font-family: inherit; }
     radial-gradient(circle at 50% 52%, rgba(10,10,10,0.78) 0, rgba(18,18,18,0.7) 58%, rgba(235,235,235,0.55) 76%, rgba(255,255,255,0.92) 80%, rgba(255,255,255,0.15) 100%);
   box-shadow: inset 0 0 22px rgba(255,255,255,0.28), 0 24px 50px rgba(0,0,0,0.55);
 }
+.bubble.lens { overflow: hidden; background: rgba(19,18,17,0.96); box-shadow: 0 0 0 1px rgba(255,255,255,0.25), 0 18px 46px rgba(0,0,0,0.6), 0 0 40px rgba(var(--dot), 0.25); }
+.bubble.lens::after { content: ''; position: absolute; inset: 0; border-radius: 50%; pointer-events: none;
+  background:
+    radial-gradient(circle at 30% 24%, rgba(255,255,255,0.85) 0, rgba(255,255,255,0.7) 3%, rgba(255,255,255,0.12) 11%, transparent 24%),
+    radial-gradient(circle at 70% 84%, rgba(var(--dot), 0.3) 0, transparent 38%),
+    radial-gradient(circle at 50% 50%, transparent 56%, rgba(255,255,255,0.14) 74%, rgba(255,255,255,0.7) 82%, rgba(255,255,255,0.08) 100%);
+  box-shadow: inset 0 0 26px rgba(255,255,255,0.3), inset 0 0 6px rgba(255,255,255,0.5); }
+.lens-view { position: absolute; left: 0; top: 0; transform-origin: 0 0; pointer-events: none; user-select: none; -webkit-user-select: none; color: var(--text); font-family: 'Manrope', system-ui, sans-serif; line-height: 1.6; }
 .bubble-fx { position: absolute; inset: 0; pointer-events: none; z-index: 1000; }
 .bubble-count { position: absolute; top: 4px; right: 4px; z-index: 1001; padding: 0.3rem 0.8rem; border-radius: 999px; font-size: 0.72rem; font-weight: 600; color: var(--text-dim); background: rgba(255,255,255,0.06); border: 1px solid var(--line); pointer-events: none; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
 .bubble-hint { position: absolute; left: 0; right: 0; bottom: 2px; z-index: 1001; text-align: center; font-size: 0.74rem; color: var(--text-faint); pointer-events: none; }
 .win-layer { position: absolute; inset: 0; z-index: 2000; display: grid; place-items: center; padding: 0.8rem; pointer-events: none; }
-.win-card { position: relative; pointer-events: auto; text-align: center; max-width: 320px; width: 100%; padding: 1.6rem 1.4rem 1.4rem; border-radius: 24px; background: rgba(22,21,19,0.88); -webkit-backdrop-filter: blur(22px) saturate(160%); backdrop-filter: blur(22px) saturate(160%); border: 1px solid rgba(var(--dot), 0.55); box-shadow: 0 0 60px rgba(var(--dot), 0.28), 0 24px 60px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.12); cursor: default; }
-.win-card h3 { font-size: clamp(1.7rem, 4vw, 2.1rem); margin: 0.7rem 0 0.4rem; background: linear-gradient(120deg, #fff, var(--accent-strong)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.win-card p { color: var(--text-dim); font-size: 0.92rem; line-height: 1.55; }
-.win-badge { display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; color: var(--accent-ink); background: var(--accent); }
-.win-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin-top: 1.1rem; }
-.win-x { position: absolute; top: 10px; right: 10px; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: rgba(255,255,255,0.08); border: 1px solid var(--line); color: var(--text-dim); cursor: pointer; }
+/* free-floating win text: no box, just glowing type over the fireworks */
+.win-text { position: relative; pointer-events: auto; text-align: center; max-width: 440px; width: 100%; cursor: default; }
+.win-text h3 { font-size: clamp(1.9rem, 5.2vw, 2.9rem); letter-spacing: -0.035em; line-height: 1.05; margin: 0 0 0.6rem; background-image: linear-gradient(120deg, #fff 10%, var(--accent-strong) 80%); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 0 22px rgba(var(--dot), 0.55)) drop-shadow(0 2px 4px rgba(0,0,0,0.6)); }
+.win-text.both h3 { background-image: linear-gradient(110deg, #e0a566 5%, #fff 48%, #b3d6b7 95%); filter: drop-shadow(0 0 22px rgba(224,165,102,0.45)) drop-shadow(0 0 26px rgba(156,197,161,0.4)) drop-shadow(0 2px 4px rgba(0,0,0,0.6)); }
+.win-text p { color: var(--text); font-size: 0.98rem; line-height: 1.5; text-shadow: 0 2px 14px rgba(0,0,0,0.85); }
+.win-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; margin-top: 1.2rem; }
+.win-again { display: block; margin: 0.9rem auto 0; background: none; border: none; color: var(--text-dim); font-size: 0.8rem; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; text-shadow: 0 1px 8px rgba(0,0,0,0.8); }
+.win-again:hover { color: var(--text); }
+.btn-orange { background: #d4924a; color: #1b1409; }
+.btn-orange:hover { background: #e0a566; }
+.btn-green { background: #9cc5a1; color: #0f1a10; }
+.btn-green:hover { background: #b3d6b7; }
+.fireworks { position: fixed; left: 0; top: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 1500; }
 .pillar-choice { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2.2rem; max-width: 560px; }
 @media (max-width: 560px) { .pillar-choice { grid-template-columns: 1fr; } }
 .pillar-card { display: block; padding: 1.3rem 1.3rem 1.15rem; border-radius: 18px; border: 1px solid var(--line); background: rgba(22,21,19,0.7); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); transition: border-color 0.25s, transform 0.25s, background 0.25s; }

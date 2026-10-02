@@ -13,6 +13,7 @@ export const digital: SideContent = {
     { label: 'Contact', to: '/digital/contact' },
   ],
   heroEyebrow: 'Digital Solutions',
+  welcome: 'Websites, stores, and web apps for your business, built, launched, and supported long after go-live.',
   heroHeadline: ['Websites and apps', 'that keep working.'],
   heroSub:
     'We design, build, and maintain websites, ecommerce stores, dashboards, and custom business systems, then stay on to update and support them.',

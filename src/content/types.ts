@@ -106,6 +106,8 @@ export interface SideContent {
   nav: NavItem[];
   heroHeadline: string[];
   heroEyebrow: string;
+  /** short welcome line shown in the bubble-game win message */
+  welcome: string;
   heroSub: string;
   primary: NavItem;
   secondary: NavItem;

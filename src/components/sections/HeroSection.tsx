@@ -26,7 +26,7 @@ const HeroSection: React.FC<Props> = ({ side }) => {
       <PixelField variant="left" />
       <div className="hero-fade" />
       <div className="wrap hero-grid">
-        <div>
+        <div data-lens-copy>
           <motion.span className="pill" {...fade(0.05)}>
             <span className="pill-dot" />
             {side.heroEyebrow}
@@ -48,9 +48,10 @@ const HeroSection: React.FC<Props> = ({ side }) => {
         </div>
         <motion.div {...fade(0.3)}>
           <Bubbles
-            winTitle="You won!"
-            winText="You popped them all. Now let’s get to work."
-            actions={[{ label: side.key === 'digital' ? 'Start a project' : 'Get guidance', to: `${side.path}/contact` }]}
+            winTitle={`Welcome to ${side.name}`}
+            winText={side.welcome}
+            fireworks={side.key === 'digital' ? 'orange' : 'green'}
+            actions={[{ label: side.key === 'digital' ? 'Start a project' : 'Get guidance', to: `${side.path}/contact`, tone: side.key === 'digital' ? 'orange' : 'green' }]}
           />
         </motion.div>
       </div>

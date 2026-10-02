@@ -56,6 +56,7 @@ export const lab: SideContent = {
     { label: 'Contact', to: '/lab/contact' },
   ],
   heroEyebrow: 'Student Lab',
+  welcome: 'Hands-on mentorship and working prototypes for your final year project, from first idea to viva.',
   heroHeadline: ['Final year projects,', 'built with a mentor.'],
   heroSub:
     'We help students conceptualize, build, test and understand their final-year projects through hands-on technical mentorship and working prototypes.',
